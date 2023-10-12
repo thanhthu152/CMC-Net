@@ -25,11 +25,12 @@ def dice_score(y_pred, y_true, smooth=0.):
 
     return (2. * intersection + smooth) / (y_pred.sum() + y_true.sum() + smooth)
 
-class DiceLoss(nn.Module):
+class Loss(nn.Module):
     def __init__(self):
         super().__init__()
 
     def forward(self, y_pred, y_true):
+        bce = F.binary_cross_entropy_with_logits(y_pred, y_true)
         dice = dice_score(y_pred, y_true, smooth=1e-3)
 
-        return 1 - dice
+        return 0.5*(1 - dice) + 0.5*bce
