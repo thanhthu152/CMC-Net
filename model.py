@@ -959,8 +959,5 @@ class PVTFormerNet(nn.Module):
 backbone = pvt_v2_b3()
 backbone.load_state_dict(torch.load(PRETRAINED_PATH))
 
-model = PVTFormerNet(backbone=backbone,attention=True,convmix=False,convMLP=True,MLPmix=False)
+PVTFormerNet = PVTFormerNet(backbone=backbone,attention=True,convmix=False,convMLP=True,MLPmix=False)
 
-x = torch.rand(1,3,256,256)
-y = model(x)[0]
-y.shape
