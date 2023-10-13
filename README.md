@@ -1,5 +1,8 @@
 # CMC-Net: A New Transformer-based Architecture for Polyp Segmentation
 
+## Abstract
+Polyps are pathological and usually appear in the gastrointestinal, most of which are not dangerous to health, but  some are at risk of developing into cancer, especially polyps in the colon. Therefore, accurate polyp segmentation from colonoscopy images is necessary to help doctors come up with a treatment plan. Based on the effectiveness of convolutional neural networks (CNNs) and encoder-decoder architecture, Unet has become the baseline model for most medical image segmentation tasks. However, due to limitations of long-range dependency of CNNs and an information imbalance of skip connection between different-level features from the encoder to the decoder, the Unet architecture gives low-accuracy seg-mentation results for complex datasets like polyps. To improve the above limitations, we introduce a new transformer-based architecture termed CMC-Net. A backbone of the encoder of our proposed model is PVT-v2 which produces a global receptive field instead of local receptive fields in traditional CNN backbones. We design the ConvMLP-Mixer block to exploit context information from the encoder and connect it to the feature map from the decoding process. An attention map is proposed parallel with the decoder to combine all levels of context information on full scale from the decoder. Our experiments with the Kvasir-SEG set and the CVC-ClinicDB set to show that CMC-Net gives better-improved accuracy than other state-of-the-art models.
+
 ## Citation
 If you find the code useful for your work, please cite as:
 
